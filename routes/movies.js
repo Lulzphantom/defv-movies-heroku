@@ -102,8 +102,8 @@ router.patch(`${apiMainRoute}/patchMovieById`, (request, response) => {
     });
 });
 
-// Remove movie by id
-router.delete(`${apiMainRoute}/removeMovieById`, (request, response) => {
+// Delete movie by id
+router.delete(`${apiMainRoute}/deleteMovieById`, (request, response) => {
     const {id} = request.query;
     
     if (id === null){
