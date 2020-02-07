@@ -61,6 +61,7 @@ router.put(`${apiMainRoute}/updateMovieById`, (request, response) => {
     if (Object.keys(request.body).length !== 6) {
         response.status(400).send('Bad request');
         console.log('object');
+        return;
     }
 
     Movie.findByIdAndUpdate(id, {
@@ -86,6 +87,7 @@ router.patch(`${apiMainRoute}/patchMovieById`, (request, response) => {
     
     if (Object.keys(request.body).length > 0 && Object.keys(request.body).length <= 6) {
         response.status(400).send('Bad request');
+        return;
     }
 
     Movie.findByIdAndUpdate(id, {
@@ -108,6 +110,7 @@ router.delete(`${apiMainRoute}/deleteMovieById`, (request, response) => {
     
     if (id === null){
         response.status(400).send()
+        return;
     }
 
     Movie.findByIdAndDelete(id, (err, res) =>{
