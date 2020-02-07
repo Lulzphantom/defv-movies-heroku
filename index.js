@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const MONGO = require('./const');
 const router = require('./routes/movies');
@@ -8,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 4200;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 mongoose.connect(MONGO.URI, {useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Db Connected'))
